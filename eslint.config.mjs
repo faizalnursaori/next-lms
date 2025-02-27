@@ -1,6 +1,8 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import importPlugin from "eslint-plugin-import";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,9 +21,14 @@ const eslintConfig = [
     "plugin:@typescript-eslint/strict-type-checked"
   ),
   {
-    plugins: ["simple-import-sort", "import"],
-    parserOptions: {
-      project: "./tsconfig.json",
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+      import: importPlugin,
+    },
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
     },
     rules: {
       "simple-import-sort/imports": "error",

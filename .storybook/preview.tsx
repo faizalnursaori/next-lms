@@ -1,7 +1,12 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
 import "../src/styles/globals.css";
-import { geistSans } from "../src/app/layout";
-import React from "react";
+import { Geist } from "next/font/google";
+
+export const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
 const preview: Preview = {
   parameters: {
